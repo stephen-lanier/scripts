@@ -7,7 +7,7 @@
 #
 
 name=todo
-path=/Users/stephenlanier/Desktop/
+path=$HOME/Desktop/
 now=$(date "+%Y-%m-%d")
 
 # if file already exists
