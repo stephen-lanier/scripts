@@ -1,0 +1,27 @@
+#!/bin/bash
+# 
+# creates a file on the Desktop named todo.md and opens it with nvim.
+# if the file already exists and the date matches $now, it opens the file.
+# otherwise, replaces old date header with $now date header,
+# leaving the rest of the file contents.
+#
+
+name=todo
+path=/Users/stephenlanier/Desktop/
+now=$(date "+%Y-%m-%d")
+
+# if file already exists
+if [[ -f $path$name.md || -L $path$name.md ]] ; then
+    # get first line of file
+    firstline=$(cat $path$name.md | sed -E 's/# ([0-9]{4}.[0-9]{2}.[0-9]{2})/\1/')
+    # if date doesn't match $now
+    if [ "$now" != "$firstline" ] ; then
+        # replace `# yyyy-mm-dd` with `# $now`
+        sed -Ei '' "s/# [0-9]{4}.[0-9]{2}.[0-9]{2}/# $now/" $path$name.md
+    fi
+# else just touch new file
+else
+    echo "# $now" > $path$name.md
+fi
+nvim $path$name.md
+
