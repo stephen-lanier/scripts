@@ -11,18 +11,19 @@ path=$HOME/Desktop/
 now=$(date "+%Y-%m-%d")
 
 # if file already exists
-if [[ -f $path$filename.md || -L $path$filename.md ]] ; then
+if [[ -f "$path$filename.md" || -L "$path$filename.md" ]] ; then
     # get first line of file
-    firstline=$(cat $path$filename.md | sed -E 's/# ([0-9]{4}.[0-9]{2}.[0-9]{2})/\1/')
+    # firstline=$(cat "$path$filename.md" | sed -E 's/# ([0-9]{4}.[0-9]{2}.[0-9]{2})/\1/')
+    firstline=$(sed -E 's/# ([0-9]{4}.[0-9]{2}.[0-9]{2})/\1/' < "$path$filename.md")
     # if date doesn't match $now
     if [ "$now" != "$firstline" ] ; then
         # replace `# yyyy-mm-dd` with `# $now`
-        # sed -Ei '' "s/# [0-9]{4}.[0-9]{2}.[0-9]{2}/# $now/" $path$filename.md
-        echo -e "# $now\n$(tail -n +2 $path$filename.md)" > $path$filename.md
+        # sed -Ei '' "s/# [0-9]{4}.[0-9]{2}.[0-9]{2}/# $now/" "$path$filename.md"
+        echo -e "# $now\n$(tail -n +2 "$path$filename.md")" > "$path$filename.md"
     fi
 # else just touch new file
 else
-    echo "# $now" > $path$filename.md
+    echo "# $now" > "$path$filename.md"
 fi
-nvim $path$filename.md
+nvim "$path$filename.md"
 
