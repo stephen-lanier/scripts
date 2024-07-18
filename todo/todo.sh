@@ -15,6 +15,11 @@ if [ -n "$1" ] && [ "$1" = "did" ]; then
     if [[ -f "$path$filename.md" || -L "$path$filename.md" ]]; then
         trash "$path$filename.md"
     fi
+# if called with "ref", open the reference named md-example.md
+elif [ -n "$1" ] && [ "$1" = "ref" ]; then
+    RFP="$(realpath "$0" | xargs dirname)"
+    nvim "$RFP/md-example.md"
+    # nvim "/Users/stephenlanier/Documents/Code/scripts/todo/md-example.md"
 # else create or modify todo file if necessary and then open
 else
     # if file already exists
