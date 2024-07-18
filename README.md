@@ -23,7 +23,7 @@ through and move any keepers to the appropriate file or location, delete
 finished items, etc.
 
 This simple script allows me to call `todo` on the terminal. It opens
-`todo.md` on my Desktop if it already exists, or creates it with the date as
+todo.md on my Desktop if it already exists, or creates it with the date as
 markdown h1 `#` if it doesn't. If the file does exist, but it has a different
 date than the current one for the first line, it updates the first line to the
 current date but otherwise keeps the file the same.
@@ -34,11 +34,12 @@ have a markdown previewer already installed on my editor of choice.)
 `todo did` moves the file to the trash.
 
 And that's it! I can simply call `todo` from the terminal in any directory, and
-it will open Neovim with my `todo.md` file.
+it will open Neovim with my todo.md file.
 
 Which reminds me, you need Trash and Neovim installed to use this out of the
 box. If you have other preferences (i.e. `rm` instead of `trash`, `vim` instead
-of `nvim`), these are simple changes to make for yourself.
+of `nvim`), these are simple changes to make for yourself. I don't guarantee
+this works on any \*nix machine, only mine ;)
 
 ### Contents
 
