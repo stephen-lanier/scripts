@@ -12,7 +12,7 @@ document":
 
 I find that 1) I spend a lot of time on my terminal when on my computer, and that 2) I love the
 variety of material I can generate with a few short-ish lines of markdown--see
-[todo/md-example.md](https://github.com/stephen-lanier/scripts/blob/main/todo/md-example.md)
+[todo/md-example.md](https://github.com/stephen-lanier/scripts/blob/main/todo/md-example.pdf)
 for some cool examples. 
 
 Those two things are what led me to
